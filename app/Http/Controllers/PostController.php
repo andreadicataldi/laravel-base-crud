@@ -15,7 +15,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // Get all Posts, ordered by the newest first
+        $posts = Post::latest()->get();
+
+        // Pass Post Collection to view
+        return view('posts.index', compact('posts'));
     }
 
     /**
